@@ -1,0 +1,79 @@
+{
+  "name": "JS_PKG_TEMPLATE",
+  "version": "0.0.0",
+  "description": "A base project for developing JavaScript/TypeScript packages.",
+  "license": "MIT",
+  "author": {
+    "name": "Julio L. Muller",
+    "url": "https://github.com/juliolmuller"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "keywords": [
+    "package",
+    "template",
+    "boilerplate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LacusSolutions/JS_PKG_TEMPLATE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LacusSolutions/JS_PKG_TEMPLATE/issues"
+  },
+  "homepage": "https://github.com/LacusSolutions/JS_PKG_TEMPLATE#readme",
+  "types": "build/index.d.ts",
+  "module": "build/index.mjs",
+  "main": "build/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "require": {
+        "default": "./build/index.cjs"
+      },
+      "import": {
+        "default": "./build/index.mjs"
+      }
+    }
+  },
+  "scripts": {
+    "prepare": "bun x husky",
+    "commit": "commit",
+    "changelog": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "build": "rollup --config",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint --fix src/ test/ eslint.config.mjs rollup.config.mjs",
+    "pretest": "bun run build --silent",
+    "test": "bun test --coverage --coverage-reporter=lcov --coverage-dir=test/__coverage__",
+    "test:ci": "bun test"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "@changesets/cli": "^2.29.7",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/prompt-cli": "^20.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.2",
+    "@rollup/plugin-terser": "~0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/node": "^22.18.8",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.37.0",
+    "eslint-config-any": "^2.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "rollup": "^4.52.4",
+    "rollup-plugin-delete": "^3.0.1",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "typescript": "^5.9.3"
+  }
+}
